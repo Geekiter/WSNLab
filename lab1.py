@@ -11,12 +11,15 @@ def distance(x1: float, x2: float, y1: float, y2: float) -> float:
 def wsn(_num):
     begin = 0
     end = 100
-    plt.figure(figsize=(15, 15))
+    step = 10
+    plt.figure(figsize=(14, 14))  # 画布大小
     axes = plt.gca()
+    # 设置x, y轴限制
     axes.set_xlim([begin, end])
     axes.set_ylim([begin, end])
-    plt.xticks(np.arange(0, end, 10))
-    plt.yticks(np.arange(0, end, 10))
+    # 设置x, y轴精度
+    plt.xticks(np.arange(begin, end, step))
+    plt.yticks(np.arange(begin, end, step))
     randomList = np.random.uniform(begin, end, [2, _num])
     plt.scatter(randomList[0], randomList[1], c='r', marker="o")
     for curIndex in range(0, len(randomList[0])):
@@ -36,6 +39,5 @@ def wsn(_num):
 
 
 if __name__ == '__main__':
-    isFull = False
     number = 150
     wsn(number)
